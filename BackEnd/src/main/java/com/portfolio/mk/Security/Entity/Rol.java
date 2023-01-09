@@ -18,21 +18,17 @@ public class Rol {
 public Rol(){
 
 }
-    public Rol(RolNombre rolNombre) {
-        this.rolNombre = rolNombre;
+    public Rol(RolNombre rolNombre) {this.rolNombre = rolNombre;
     }
 
     //Getter y Setter
-    public int getId() {
-        return id;
+    public int getId() {return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id) {this.id = id;
     }
 
-    public RolNombre getRolNombre() {
-        return rolNombre;
+    public RolNombre getRolNombre() {return rolNombre;
     }
 
     public void setRolNombre(RolNombre rolNombre) {
