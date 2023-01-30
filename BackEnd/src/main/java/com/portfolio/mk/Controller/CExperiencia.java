@@ -1,6 +1,7 @@
 package com.portfolio.mk.Controller;
 
 import com.portfolio.mk.Dto.dtoExperiencia;
+import com.portfolio.mk.Entity.Educacion;
 import com.portfolio.mk.Entity.Experiencia;
 import com.portfolio.mk.Security.Controller.Mensaje;
 import com.portfolio.mk.Service.SExperiencia;
@@ -26,11 +27,13 @@ public class CExperiencia {
     }
 
     @GetMapping("/detail/{id}")
-    public ResponseEntity<?> getById(@PathVariable("id") int id){
-        if(!sExperiencia.existsById(id))
-            return new ResponseEntity<> (new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+    public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
+        if(!sExperiencia.existsById(id)){
+            return new ResponseEntity(new Mensaje("No existe"), HttpStatus.NOT_FOUND);
+        }
+
         Experiencia experiencia = sExperiencia.getOne(id).get();
-        return new ResponseEntity<>(experiencia, HttpStatus.OK);
+        return new ResponseEntity(experiencia, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
